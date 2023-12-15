@@ -7,6 +7,7 @@ Feature: Make A New Registration (Sign Up)
     When    User clicks on sign in button
     And     User enters his valid E-mail address which shouldn't be used before in E-mail field
     And     User clicks on continue button in orange color
+    And     User skips the securiy pop-up
     And     User enters his password which should be with good or strong level of strength in password field
     And     User reenter the same password which in confirm password field
     And     User clicks continue to redirect to first page of personal info pages
