@@ -4,6 +4,8 @@ import org.example.stepDefs.Hooks;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
+import java.util.List;
+
 public class AddToCart_locators {
     public WebElement subscribePopUp() {
         return Hooks.driver.findElement(By.xpath("//div[@class='-pvxl -phl -tac -fw']"));
@@ -37,6 +39,12 @@ public class AddToCart_locators {
         return Hooks.driver.findElement(By.xpath("//button[@id='loginButton']//span[@class='mdc-button__touch']"));
     }
 
+    public WebElement secureYourAccountPopUp() {
+        return Hooks.driver.findElement(By.xpath("//div[@class=\"passkeys-enrolment-screen\"]"));
+    }
+    public WebElement skipSecureButton() {
+        return Hooks.driver.findElement(By.xpath("//a[@id=\"skipPasskeyButton\"]"));
+    }
     public WebElement superMarketMenu() {
         return Hooks.driver.findElement(By.xpath("(//a[@href='/groceries/'])[1]"));
     }
@@ -73,8 +81,8 @@ public class AddToCart_locators {
         return Hooks.driver.findElement(By.cssSelector(".-fs20.-m.-phm.-pvxs"));
     }
 
-    public WebElement itemOnePrice() {
-        return Hooks.driver.findElement(By.xpath("(//div[@class='prc'][normalize-space()='EGP 54.00'])[1]"));
+    public List<WebElement> itemsPrice() {
+        return Hooks.driver.findElements(By.xpath("//div[@class='prc']"));
     }
 
     public WebElement itemTwoPrice() {
@@ -85,9 +93,17 @@ public class AddToCart_locators {
         return Hooks.driver.findElement(By.xpath("//p[@class='-fs20 -plm -tar']"));
     }
 
-    public WebElement removeItemOne() {
-        return Hooks.driver.findElement(By.xpath("(//*[name()='svg'][@class='ic'])[11]"));
+
+    public List<WebElement> removeItems(){
+        return Hooks.driver.findElements(By.xpath("//button[@class=\"btn _def _ti -mra\"]"));
     }
+    public WebElement removeItemOne() {
+        return Hooks.driver.findElement(By.xpath("(//button[@class='btn _def _ti -mra'][normalize-space()='Remove'])[1]"));
+    }
+    public WebElement removeItemTwo() {
+        return Hooks.driver.findElement(By.xpath("(//button[@class='btn _def _ti -mra'][normalize-space()='Remove'])[2]"));
+    }
+
 
     public WebElement confirmRemoveButton() {
         return Hooks.driver.findElement(By.xpath("//span[normalize-space()='Remove Item']"));

@@ -1,22 +1,19 @@
 package org.example.stepDefs;
 
-import io.cucumber.java.en.And;
-import io.cucumber.java.en.Given;
-import io.cucumber.java.en.Then;
-import io.cucumber.java.en.When;
-import org.example.pages.AddToCart_locators;
-import org.openqa.selenium.interactions.Actions;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
-import org.testng.asserts.SoftAssert;
+        import io.cucumber.java.en.And;
+        import io.cucumber.java.en.Given;
+        import io.cucumber.java.en.Then;
+        import io.cucumber.java.en.When;
+        import org.example.pages.AddToCart_locators;
+        import org.openqa.selenium.support.ui.ExpectedConditions;
+        import org.openqa.selenium.support.ui.WebDriverWait;
+        import org.testng.asserts.SoftAssert;
 
-import java.time.Duration;
+        import java.time.Duration;
 
 public class D02_addToCartStepDef {
     AddToCart_locators addToCart = new AddToCart_locators();
-    WebDriverWait wait = new WebDriverWait(Hooks.driver, Duration.ofSeconds(10));
-    Actions action = new Actions(Hooks.driver);
-    SoftAssert softAssert = new SoftAssert();
+    FunctionsHelper functions = new FunctionsHelper();
 
     String currentURL, expectedURL;
     Double itemOnePrice, itemTwoPrice, expectedTotalPrice, actualTotalPrice;
@@ -37,11 +34,19 @@ public class D02_addToCartStepDef {
 
     @And("User uses his valid credentials {string} and {string} to login")
     public void fillValidCredentials(String email, String password) {
-        wait.until(ExpectedConditions.visibilityOf(addToCart.loginEmailField()));
+        functions.waitElement().until(ExpectedConditions.visibilityOf(addToCart.loginEmailField()));
         addToCart.loginEmailField().sendKeys(email);
         addToCart.countineButton().click();
         addToCart.loginPasswordField().sendKeys(password);
         addToCart.loginButton().click();
+    }
+
+    @And("User click on skip for now button")
+    public void clickSkipForNow() {
+        functions.waitElement().until(ExpectedConditions.visibilityOf(addToCart.skipSecureButton()));
+        if (addToCart.secureYourAccountPopUp().isDisplayed()) {
+            addToCart.skipSecureButton().click();
+        }
     }
 
 
@@ -49,21 +54,21 @@ public class D02_addToCartStepDef {
     public void hoverOnSupermarketAndSelectBakery() {
         currentURL = Hooks.driver.getCurrentUrl();
         expectedURL = "https://www.jumia.com.eg/";
-        softAssert.assertEquals(currentURL, expectedURL);
-        action.moveToElement(addToCart.superMarketMenu()).perform();
+        functions.softAssert().assertEquals(currentURL, expectedURL);
+        functions.hoverOnElement(addToCart.superMarketMenu());
         addToCart.bakerySection().click();
-        softAssert.assertAll();
+        functions.softAssert().assertAll();
     }
 
     @And("User clicks add to cart to the first and second items")
     public void addTwoItemsToCart() {
-        Hooks.scrollDown(Hooks.driver);
-        action.moveToElement(addToCart.firstItem()).perform();
+        FunctionsHelper.scrollDown(Hooks.driver, 200);
+        functions.hoverOnElement(addToCart.firstItem());
         addToCart.addFirstItem().click();
-        wait.until(ExpectedConditions.invisibilityOf(addToCart.successMessageDisappear()));
-        action.moveToElement(addToCart.secondItem()).perform();
+        functions.waitElement().until(ExpectedConditions.invisibilityOf(addToCart.successMessageDisappear()));
+        functions.hoverOnElement(addToCart.secondItem());
         addToCart.addSecondItem().click();
-        wait.until(ExpectedConditions.invisibilityOf(addToCart.successMessageDisappear()));
+        functions.waitElement().until(ExpectedConditions.invisibilityOf(addToCart.successMessageDisappear()));
 
     }
 
@@ -74,20 +79,26 @@ public class D02_addToCartStepDef {
     }
 
     @Then("The same two items shall be added to Users cart with total amount equals both items prices")
-    public void itemsCountAndAmountAssertion() {
-        softAssert.assertTrue(addToCart.itemsCount().getText().contains("2"));
-        itemOnePrice = Double.valueOf(addToCart.itemOnePrice().getText().replaceAll("[^0-9.]", ""));
-        itemTwoPrice = Double.valueOf(addToCart.itemTwoPrice().getText().replaceAll("[^0-9.]", ""));
-        expectedTotalPrice = itemOnePrice + itemTwoPrice;
-        actualTotalPrice = Double.valueOf(addToCart.totalAmountDue().getText().replaceAll("[^0-9.]", ""));
-        softAssert.assertEquals(actualTotalPrice, expectedTotalPrice);
+    public void itemsCountAndAmountAssertion() throws InterruptedException {
+        functions.softAssert().assertTrue(addToCart.itemsCount().getText().contains("2"));
+        if (addToCart.itemsPrice().size() <= 32) {
+            itemOnePrice = Double.valueOf(addToCart.itemsPrice().get(0).getText().replaceAll("[^0-9.]", ""));
+            itemTwoPrice = Double.valueOf(addToCart.itemsPrice().get(1).getText().replaceAll("[^0-9.]", ""));
+            expectedTotalPrice = itemOnePrice + itemTwoPrice;
+            actualTotalPrice = Double.valueOf(addToCart.totalAmountDue().getText().replaceAll("[^0-9.]", ""));
+        }
+        functions.softAssert().assertEquals(actualTotalPrice, expectedTotalPrice);
+
         //Items will be removed for the next execution
-        addToCart.removeItemOne().click();
-        addToCart.confirmRemoveButton().click();
-        wait.until(ExpectedConditions.invisibilityOf(addToCart.successMessageDisappear()));
-        addToCart.removeItemOne().click();
-        addToCart.confirmRemoveButton().click();
-        softAssert.assertAll();
+        if (addToCart.removeItems().size() <= 2) {
+            addToCart.removeItems().get(0).click();
+            addToCart.confirmRemoveButton().click();
+            functions.waitElement().until(ExpectedConditions.invisibilityOf(addToCart.successMessageDisappear()));
+            addToCart.removeItems().get(0).click();
+            addToCart.confirmRemoveButton().click();
+        }
+        functions.softAssert().assertAll();
+;
     }
 
 }

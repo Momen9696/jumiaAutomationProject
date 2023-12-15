@@ -1,11 +1,10 @@
 @smoke @UAT @ @valid_tests
 Feature: Add Items To Cart
-
   Scenario Outline: [UAT] Existed user can make order by add items to his cart
-
     Given   User navigates to Jumia ,skips pop up ,and clicks on Account tab
     When    User clicks on signIn button
     And     User uses his valid credentials "<E-mail>" and "<Password>" to login
+    And     User click on skip for now button
     And     User hovers on supermarket icon and clicks on bakery
     And     User clicks add to cart to the first and second items
     And     User navigates to his cart

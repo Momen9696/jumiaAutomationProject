@@ -57,7 +57,12 @@ public class D01_registerStepDef {
         wait.until(ExpectedConditions.visibilityOf(register.emailField()));
         register.emailField().sendKeys(emailAddress);
     }
-
+    @And("User skips the securiy pop-up")
+        public void skipSecurityPopup(){
+        if(register.secureYourAccountPopUp().isDisplayed()){
+            register.skipSecureButton().click();
+        }
+        }
     @And("User clicks on continue button in orange color")
     public void clickCountineButton() {
 

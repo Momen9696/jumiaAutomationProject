@@ -90,4 +90,10 @@ public class Register_locators {
     public WebElement loginAccountTab() {
         return Hooks.driver.findElement(By.xpath("(//section[@class='row -i-ctr -fw-nw -pvm'])[1]"));
     }
+    public WebElement secureYourAccountPopUp() {
+        return Hooks.driver.findElement(By.xpath("//div[@class=\"passkeys-enrolment-screen\"]"));
+    }
+    public WebElement skipSecureButton() {
+        return Hooks.driver.findElement(By.xpath("//a[@id=\"skipPasskeyButton\"]"));
+    }
 }
