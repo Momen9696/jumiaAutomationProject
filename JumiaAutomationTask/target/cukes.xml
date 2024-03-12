@@ -1,27 +1,59 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="Cucumber" time="55.119" tests="2" skipped="0" failures="0" errors="0">
-<testcase classname="Make A New Registration (Sign Up)" name="[UAT] User can make a registration on Jumia using valid data" time="20.011">
+<testsuite name="Cucumber" time="48.981" tests="2" skipped="0" failures="1" errors="0">
+<testcase classname="Make A New Registration (Sign Up)" name="[UAT] User can make a registration on Jumia using valid data" time="6.337">
+<failure type="org.openqa.selenium.SessionNotCreatedException" message="Could not start a new session. Response code 500. Message: session not created: Chrome failed to start: exited normally.
+  (session not created: DevToolsActivePort file doesn't exist)
+  (The process started from chrome location C:\Program Files (x86)\Google\Chrome\Application\chrome.exe is no longer running, so ChromeDriver is assuming that Chrome has crashed.) 
+Host info: host: 'MSI', ip: '192.168.137.1'
+Build info: version: '4.8.1', revision: '8ebccac989'
+System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '19.0.2'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [null, newSession {capabilities=[Capabilities {browserName: chrome, goog:chromeOptions: {args: [--remote-allow-origins=*], extensions: []}}], desiredCapabilities=Capabilities {browserName: chrome, goog:chromeOptions: {args: [--remote-allow-origins=*], extensions: []}}}]">
+<![CDATA[org.openqa.selenium.SessionNotCreatedException: Could not start a new session. Response code 500. Message: session not created: Chrome failed to start: exited normally.
+  (session not created: DevToolsActivePort file doesn't exist)
+  (The process started from chrome location C:\Program Files (x86)\Google\Chrome\Application\chrome.exe is no longer running, so ChromeDriver is assuming that Chrome has crashed.) 
+Host info: host: 'MSI', ip: '192.168.137.1'
+Build info: version: '4.8.1', revision: '8ebccac989'
+System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '19.0.2'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [null, newSession {capabilities=[Capabilities {browserName: chrome, goog:chromeOptions: {args: [--remote-allow-origins=*], extensions: []}}], desiredCapabilities=Capabilities {browserName: chrome, goog:chromeOptions: {args: [--remote-allow-origins=*], extensions: []}}}]
+	at org.openqa.selenium.remote.ProtocolHandshake.createSession(ProtocolHandshake.java:148)
+	at org.openqa.selenium.remote.ProtocolHandshake.createSession(ProtocolHandshake.java:106)
+	at org.openqa.selenium.remote.ProtocolHandshake.createSession(ProtocolHandshake.java:67)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:156)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:167)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:142)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:543)
+	at org.openqa.selenium.remote.RemoteWebDriver.startSession(RemoteWebDriver.java:229)
+	at org.openqa.selenium.remote.RemoteWebDriver.<init>(RemoteWebDriver.java:157)
+	at org.openqa.selenium.chromium.ChromiumDriver.<init>(ChromiumDriver.java:101)
+	at org.openqa.selenium.chrome.ChromeDriver.<init>(ChromeDriver.java:82)
+	at org.openqa.selenium.chrome.ChromeDriver.<init>(ChromeDriver.java:71)
+	at org.example.stepDefs.Hooks.initDriver(Hooks.java:28)
+]]>
+</failure>
 <system-out><![CDATA[
-Given User navigates to Jumia english ,Skips pop up ,and Clicks on Account tab on the top of screen.passed
-When User clicks on sign in button..........................................passed
-And User enters his valid E-mail address which shouldn't be used before in E-mail field.passed
-And User clicks on continue button in orange color..........................passed
-And User enters his password which should be with good or strong level of strength in password field.passed
-And User reenter the same password which in confirm password field..........passed
-And User clicks continue to redirect to first page of personal info pages...passed
-And User enters his personal details First Name,Last Name...................passed
-And User asserts country prefix is valid and enters a valid Phone Number....passed
-And User clicks continue to redirect to second page of personal info pages..passed
-And User continue entering his personal details Gender,Birth date...........passed
-And User clicks on I read and consented to the Terms and Conditions.........passed
-Then User should be redirected to the home page and tab account changing with HI, and his FirstName.passed
+Given User navigates to Jumia english ,Skips pop up ,and Clicks on Account tab on the top of screen.skipped
+When User clicks on sign in button..........................................skipped
+And User enters his valid E-mail address which shouldn't be used before in E-mail field.skipped
+And User clicks on continue button in orange color..........................skipped
+And User enters his password which should be with good or strong level of strength in password field.skipped
+And User reenter the same password which in confirm password field..........skipped
+And User clicks continue to redirect to first page of personal info pages...skipped
+And User enters his personal details First Name,Last Name...................skipped
+And User asserts country prefix is valid and enters a valid Phone Number....skipped
+And User clicks continue to redirect to second page of personal info pages..skipped
+And User continue entering his personal details Gender,Birth date...........skipped
+And User clicks on I read and consented to the Terms and Conditions.........skipped
+Then User should be redirected to the home page and tab account changing with HI, and his FirstName.skipped
 ]]></system-out>
 </testcase>
-<testcase classname="Add Items To Cart" name="[UAT] Existed user can make order by add items to his cart - Example #1.1" time="34.918">
+<testcase classname="Add Items To Cart" name="[UAT] Existed user can make order by add items to his cart - Example #1.1" time="42.369">
 <system-out><![CDATA[
 Given User navigates to Jumia ,skips pop up ,and clicks on Account tab......passed
 When User clicks on signIn button...........................................passed
 And User uses his valid credentials "validTestUserName10@gmail.com" and "validTest@Password10" to login.passed
+And User click on skip for now button.......................................passed
 And User hovers on supermarket icon and clicks on bakery....................passed
 And User clicks add to cart to the first and second items...................passed
 And User navigates to his cart..............................................passed

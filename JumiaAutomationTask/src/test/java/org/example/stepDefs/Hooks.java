@@ -25,10 +25,16 @@ public class Hooks {
             WebDriverManager.chromedriver().setup();
             ChromeOptions options = new ChromeOptions();
             options.addArguments("--remote-allow-origins=*");
+            options.addArguments("--disable-notifications");
             driver = new ChromeDriver(options);
             driver.manage().window().maximize();
             driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
-            String baseUrl = "https://www.jumia.com.eg/en/";
+            try {
+                Alert alert = driver.switchTo().alert();
+                alert.dismiss();
+            } catch (NoAlertPresentException e) {
+            }
+            String baseUrl = "https://www.jumia.com.eg/";
             driver.navigate().to(baseUrl);
 
         }

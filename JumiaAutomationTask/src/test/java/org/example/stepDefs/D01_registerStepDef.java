@@ -15,10 +15,13 @@ import java.time.Duration;
 
 //Actions
 public class D01_registerStepDef {
+    FunctionsHelper functions = new FunctionsHelper();
+    int usedDataRowNumber;
+
     ExcelUtils validDynamicTestDataSheet = new ExcelUtils(ConfigManager.getInstance().getString("baseExcelSheetPath") + ConfigManager.getInstance().getString("RegistrationDataExcelPath"), "dynamicTestData");
     String emailAddress = retrieveUnusedData("e-mailAddress");
     String password = retrieveUnusedData("password");
-    String phoneNumber = retrieveUnusedData("phoneNumber");
+    String phoneNumber, expectedURL, currentUrl;
 
     ExcelUtils validStaticTestDataSheet = new ExcelUtils(ConfigManager.getInstance().getString("baseExcelSheetPath") + ConfigManager.getInstance().getString("RegistrationDataExcelPath"), "staticTestData");
     int validRowNumber = validStaticTestDataSheet.getRowNum("validTestData");
@@ -57,12 +60,14 @@ public class D01_registerStepDef {
         wait.until(ExpectedConditions.visibilityOf(register.emailField()));
         register.emailField().sendKeys(emailAddress);
     }
-    @And("User skips the securiy pop-up")
-        public void skipSecurityPopup(){
-        if(register.secureYourAccountPopUp().isDisplayed()){
+
+    @And("User skips the security pop-up")
+    public void skipSecurityPopup() {
+        if (register.secureYourAccountPopUp().isDisplayed()) {
             register.skipSecureButton().click();
         }
-        }
+    }
+
     @And("User clicks on continue button in orange color")
     public void clickCountineButton() {
 
@@ -94,6 +99,7 @@ public class D01_registerStepDef {
 
     @And("User asserts country prefix is valid and enters a valid Phone Number")
     public void fillPhoneNumber() {
+        phoneNumber = functions.randomPhoneNumberGenerator();
         softAssert.assertTrue(register.prefixField().getText().contains("+20"), "Prefix is invalid");
         register.phoneNumber().sendKeys(phoneNumber);
         softAssert.assertAll();
@@ -130,6 +136,48 @@ public class D01_registerStepDef {
         validDynamicTestDataSheet.setCellData(validRow, validDynamicTestDataSheet.getColNumber("usedFlag"), "true");
     }
 
+    @And("User enters password which is mismatched with the the same password")
+    public void enteringMismatchedPassword() {
+        register.confirmationPasswordField().sendKeys(password + "1");
+    }
+
+    @Then("message contains that passwords aren't match")
+    public void assertionOnMismatchedPasswordsMessage() {
+        if (register.confirmPasswordLabel().isDisplayed()) {
+            // Assert on the message
+            softAssert.assertTrue(register.confirmPasswordLabel().getText().contains("passwords must match"), "Expected message not found.");
+            softAssert.assertAll();
+        } else {
+            // Log a message indicating confirm password field is empty
+            System.out.println("Confirm password label doesn't display .");
+        }
+
+    }
+
+    @And("When user clicks on continue button there will be no redirection")
+    public void assertCountineButNotRedirecting() {
+        currentUrl = Hooks.driver.getCurrentUrl();
+        wait.until(ExpectedConditions.textToBePresentInElement(register.passwordStrength(), "Strong"));
+        register.secondContinueButton().click();
+        expectedURL = Hooks.driver.getCurrentUrl();
+        softAssert.assertEquals(currentUrl, expectedURL);
+        softAssert.assertAll();
+    }
+
+    @And("User enters already registered e-mail address")
+    public void enteringAlreadyRegisteredEmail() {
+        usedDataRowNumber = validDynamicTestDataSheet.getRowNum("usedEmailAddress");
+        wait.until(ExpectedConditions.visibilityOf(register.emailField()));
+//        register.emailField().sendKeys(validDynamicTestDataSheet.getCellData(usedDataRowNumber, validDynamicTestDataSheet.getColNumber("e-mailAddress")));
+        register.emailField().sendKeys(validDynamicTestDataSheet.getCellData(usedDataRowNumber,validDynamicTestDataSheet.getColNumber("e-mailAddress")));
+    }
+
+    @Then("Confirmation password field shouldn't be appear")
+    public void assertConfirmationPasswordInvisibility() {
+
+        softAssert.assertTrue(!register.confirmationPasswordField().isDisplayed());
+        softAssert.assertAll();
+    }
 }
 
 

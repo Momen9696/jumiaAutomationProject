@@ -34,7 +34,7 @@ public class D02_addToCartStepDef {
 
     @And("User uses his valid credentials {string} and {string} to login")
     public void fillValidCredentials(String email, String password) {
-        functions.waitElement().until(ExpectedConditions.visibilityOf(addToCart.loginEmailField()));
+        functions.waitElement(5).until(ExpectedConditions.visibilityOf(addToCart.loginEmailField()));
         addToCart.loginEmailField().sendKeys(email);
         addToCart.countineButton().click();
         addToCart.loginPasswordField().sendKeys(password);
@@ -43,7 +43,7 @@ public class D02_addToCartStepDef {
 
     @And("User click on skip for now button")
     public void clickSkipForNow() {
-        functions.waitElement().until(ExpectedConditions.visibilityOf(addToCart.skipSecureButton()));
+        functions.waitElement(3).until(ExpectedConditions.visibilityOf(addToCart.skipSecureButton()));
         if (addToCart.secureYourAccountPopUp().isDisplayed()) {
             addToCart.skipSecureButton().click();
         }
@@ -65,10 +65,10 @@ public class D02_addToCartStepDef {
         FunctionsHelper.scrollDown(Hooks.driver, 200);
         functions.hoverOnElement(addToCart.firstItem());
         addToCart.addFirstItem().click();
-        functions.waitElement().until(ExpectedConditions.invisibilityOf(addToCart.successMessageDisappear()));
+        functions.waitElement(5).until(ExpectedConditions.invisibilityOf(addToCart.successMessageDisappear()));
         functions.hoverOnElement(addToCart.secondItem());
         addToCart.addSecondItem().click();
-        functions.waitElement().until(ExpectedConditions.invisibilityOf(addToCart.successMessageDisappear()));
+        functions.waitElement(5).until(ExpectedConditions.invisibilityOf(addToCart.successMessageDisappear()));
 
     }
 
@@ -93,7 +93,7 @@ public class D02_addToCartStepDef {
         if (addToCart.removeItems().size() <= 2) {
             addToCart.removeItems().get(0).click();
             addToCart.confirmRemoveButton().click();
-            functions.waitElement().until(ExpectedConditions.invisibilityOf(addToCart.successMessageDisappear()));
+            functions.waitElement(5).until(ExpectedConditions.invisibilityOf(addToCart.successMessageDisappear()));
             addToCart.removeItems().get(0).click();
             addToCart.confirmRemoveButton().click();
         }

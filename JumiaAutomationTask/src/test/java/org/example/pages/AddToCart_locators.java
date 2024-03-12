@@ -97,12 +97,6 @@ public class AddToCart_locators {
     public List<WebElement> removeItems(){
         return Hooks.driver.findElements(By.xpath("//button[@class=\"btn _def _ti -mra\"]"));
     }
-    public WebElement removeItemOne() {
-        return Hooks.driver.findElement(By.xpath("(//button[@class='btn _def _ti -mra'][normalize-space()='Remove'])[1]"));
-    }
-    public WebElement removeItemTwo() {
-        return Hooks.driver.findElement(By.xpath("(//button[@class='btn _def _ti -mra'][normalize-space()='Remove'])[2]"));
-    }
 
 
     public WebElement confirmRemoveButton() {
