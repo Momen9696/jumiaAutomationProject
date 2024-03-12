@@ -99,4 +99,5 @@ public class Register_locators {
     public WebElement confirmPasswordLabel() {
         return Hooks.driver.findElement(By.xpath("//div[@id=\"confirm-password-label\"]"));
     }
+
 }

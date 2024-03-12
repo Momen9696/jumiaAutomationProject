@@ -42,3 +42,4 @@ Feature: Make A New Registration (Sign Up) on Jumia website
     And     User skips the security pop-up
     And     User enters his password which should be with good or strong level of strength in password field
     Then    Confirmation password field shouldn't be appear
+

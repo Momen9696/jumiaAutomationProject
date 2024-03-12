@@ -103,4 +103,5 @@ public class AddToCart_locators {
         return Hooks.driver.findElement(By.xpath("//span[normalize-space()='Remove Item']"));
     }
 
+
 }

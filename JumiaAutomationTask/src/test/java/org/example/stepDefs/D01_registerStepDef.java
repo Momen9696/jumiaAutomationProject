@@ -178,6 +178,7 @@ public class D01_registerStepDef {
         softAssert.assertTrue(!register.confirmationPasswordField().isDisplayed());
         softAssert.assertAll();
     }
+
 }
 
 

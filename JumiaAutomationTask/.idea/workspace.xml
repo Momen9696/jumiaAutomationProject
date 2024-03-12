@@ -4,38 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9a6e4b17-b9eb-4311-868c-5e50a263975e" name="Changes" comment="Code enhancement 03">
-      <change afterPath="$PROJECT_DIR$/../Flows/Flows.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../JavaCourse/JavaCourse.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/checkstyle-idea.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/git_toolbox_prj.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JumiaAutomationTask.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../OopAdelNassem/OopAdelNassem.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../OopAdelNassem/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../java Basics/java Basics.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/ProdEnvTestData/Jumia/JumiaAutomationTaskTestData.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/data/ProdEnvTestData/Jumia/JumiaAutomationTaskTestData.xlsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/features/1.Register.feature" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/features/1.Register.feature" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/org/example/pages/AddToCart_locators.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/example/pages/AddToCart_locators.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/org/example/pages/Register_locators.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/example/pages/Register_locators.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/org/example/stepDefs/D01_registerStepDef.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/example/stepDefs/D01_registerStepDef.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/org/example/stepDefs/D02_addToCartStepDef.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/example/stepDefs/D02_addToCartStepDef.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/org/example/stepDefs/FunctionsHelper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/example/stepDefs/FunctionsHelper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/org/example/stepDefs/Hooks.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/example/stepDefs/Hooks.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/org/example/testRunner/runners.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/example/testRunner/runners.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/features/1.Register.feature" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/features/1.Register.feature" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/cucumber.json" beforeDir="false" afterPath="$PROJECT_DIR$/target/cucumber.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/cukes.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/cukes.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/reports/reports.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/reports/reports.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/rerun.txt" beforeDir="false" afterPath="$PROJECT_DIR$/target/rerun.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/org/example/pages/AddToCart_locators.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/org/example/pages/AddToCart_locators.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/org/example/pages/Register_locators.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/org/example/pages/Register_locators.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/org/example/stepDefs/D01_registerStepDef.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/org/example/stepDefs/D01_registerStepDef.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/org/example/stepDefs/D02_addToCartStepDef.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/org/example/stepDefs/D02_addToCartStepDef.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/org/example/stepDefs/Hooks.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/org/example/stepDefs/Hooks.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/org/example/testRunner/runners.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/org/example/testRunner/runners.class" afterDir="false" />
-    </list>
+    <list default="true" id="9a6e4b17-b9eb-4311-868c-5e50a263975e" name="Changes" comment="Code enhancement 04" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -52,7 +21,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$/.." value="FunctionsClass" />
+        <entry key="$PROJECT_DIR$/.." value="master" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
@@ -67,16 +36,12 @@
               <option name="branches">
                 <list>
                   <RecentBranch>
+                    <option name="branchName" value="enhancement04" />
+                    <option name="lastUsedInstant" value="1710234005" />
+                  </RecentBranch>
+                  <RecentBranch>
                     <option name="branchName" value="master" />
                     <option name="lastUsedInstant" value="1702680334" />
-                  </RecentBranch>
-                  <RecentBranch>
-                    <option name="branchName" value="FunctionsClass" />
-                    <option name="lastUsedInstant" value="1702678325" />
-                  </RecentBranch>
-                  <RecentBranch>
-                    <option name="branchName" value="tabController" />
-                    <option name="lastUsedInstant" value="1702677301" />
                   </RecentBranch>
                 </list>
               </option>
@@ -253,7 +218,14 @@
       <option name="project" value="LOCAL" />
       <updated>1702678469840</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Code enhancement 04">
+      <created>1710233680425</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1710233680425</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -271,7 +243,8 @@
     <MESSAGE value="Code enhancement 01" />
     <MESSAGE value="Code enhancement 02" />
     <MESSAGE value="Code enhancement 03" />
-    <option name="LAST_COMMIT_MESSAGE" value="Code enhancement 03" />
+    <MESSAGE value="Code enhancement 04" />
+    <option name="LAST_COMMIT_MESSAGE" value="Code enhancement 04" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
