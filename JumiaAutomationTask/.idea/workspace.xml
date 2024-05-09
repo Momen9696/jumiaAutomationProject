@@ -4,7 +4,19 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9a6e4b17-b9eb-4311-868c-5e50a263975e" name="Changes" comment="Code enhancement 04" />
+    <list default="true" id="9a6e4b17-b9eb-4311-868c-5e50a263975e" name="Changes" comment="Code enhancement 04">
+      <change afterPath="$PROJECT_DIR$/data/ProdEnvTestData/Jumia/JumiaTestDataSheet.xlsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/ProdEnvTestData/Jumia/JumiaAutomationTaskTestData.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/ProdEnv/config-jumia.properties" beforeDir="false" afterPath="$PROJECT_DIR$/resources/ProdEnv/config-jumia.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/features/1.Register.feature" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/features/1.Register.feature" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/org/example/stepDefs/D01_registerStepDef.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/example/stepDefs/D01_registerStepDef.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/org/example/stepDefs/D02_addToCartStepDef.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/example/stepDefs/D02_addToCartStepDef.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/features/1.Register.feature" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/features/1.Register.feature" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/features/2.AddToCart.feature" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/features/2.AddToCart.feature" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/org/example/stepDefs/D01_registerStepDef.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/org/example/stepDefs/D01_registerStepDef.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/org/example/utils/ConfigManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/org/example/utils/ConfigManager.class" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -79,7 +91,7 @@
     &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;
   }
 }</component>
-  <component name="RunManager" selected="Cucumber Java.Scenario: User can't make a registration with already registered e-mail address">
+  <component name="RunManager" selected="Cucumber Java.Scenario: User can add items to his saved items in order to be able to purchase it later">
     <configuration name="Feature: 1.Register" type="CucumberJavaRunConfigurationType" factoryName="Cucumber java" temporary="true" nameIsGenerated="true">
       <option name="CUCUMBER_CORE_VERSION" value="5" />
       <option name="FILE_PATH" value="$PROJECT_DIR$/src/main/resources/features/1.Register.feature" />
@@ -99,14 +111,14 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Feature: 2.AddToCart" type="CucumberJavaRunConfigurationType" factoryName="Cucumber java" temporary="true" nameIsGenerated="true">
+    <configuration name="Feature: 3.AddItemsToSaved" type="CucumberJavaRunConfigurationType" factoryName="Cucumber java" temporary="true" nameIsGenerated="true">
       <option name="CUCUMBER_CORE_VERSION" value="5" />
-      <option name="FILE_PATH" value="$PROJECT_DIR$/src/main/resources/features/2.AddToCart.feature" />
+      <option name="FILE_PATH" value="$PROJECT_DIR$/src/main/resources/features/3.AddItemsToSaved.feature" />
       <option name="GLUE" value="org.example.stepDefs" />
       <option name="MAIN_CLASS_NAME" value="io.cucumber.core.cli.Main" />
       <module name="JumiaAutomationTask" />
       <option name="PROGRAM_PARAMETERS" value=" --plugin org.jetbrains.plugins.cucumber.java.run.CucumberJvm5SMFormatter" />
-      <option name="SUGGESTED_NAME" value="Feature: 2.AddToCart" />
+      <option name="SUGGESTED_NAME" value="Feature: 3.AddItemsToSaved" />
       <option name="WORKING_DIRECTORY" value="$MODULE_WORKING_DIR$" />
       <extension name="coverage">
         <pattern>
@@ -118,15 +130,14 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Scenario: User can't make a registration with already registered e-mail address" type="CucumberJavaRunConfigurationType" factoryName="Cucumber java" temporary="true" nameIsGenerated="true">
+    <configuration name="Feature: AddItemsToSaved" type="CucumberJavaRunConfigurationType" factoryName="Cucumber java" temporary="true" nameIsGenerated="true">
       <option name="CUCUMBER_CORE_VERSION" value="5" />
-      <option name="FILE_PATH" value="$PROJECT_DIR$/src/main/resources/features/1.Register.feature" />
+      <option name="FILE_PATH" value="$PROJECT_DIR$/src/main/resources/features/AddItemsToSaved.feature" />
       <option name="GLUE" value="org.example.stepDefs" />
       <option name="MAIN_CLASS_NAME" value="io.cucumber.core.cli.Main" />
       <module name="JumiaAutomationTask" />
-      <option name="NAME_FILTER" value="^User can\'t make a registration with already registered e\-mail address$" />
-      <option name="PROGRAM_PARAMETERS" value=" --plugin org.jetbrains.plugins.cucumber.java.run.CucumberJvm5SMFormatter --name &quot;^User can\'t make a registration with already registered e\-mail address$&quot;" />
-      <option name="SUGGESTED_NAME" value="Scenario: User can't make a registration with already registered e-mail address" />
+      <option name="PROGRAM_PARAMETERS" value=" --plugin org.jetbrains.plugins.cucumber.java.run.CucumberJvm5SMFormatter" />
+      <option name="SUGGESTED_NAME" value="Feature: AddItemsToSaved" />
       <option name="WORKING_DIRECTORY" value="$MODULE_WORKING_DIR$" />
       <extension name="coverage">
         <pattern>
@@ -138,15 +149,15 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Scenario: User can't make a successfull registration when entering mismatched passwords" type="CucumberJavaRunConfigurationType" factoryName="Cucumber java" temporary="true" nameIsGenerated="true">
+    <configuration name="Scenario: User can add items to his saved items in order to be able to purchase it later" type="CucumberJavaRunConfigurationType" factoryName="Cucumber java" temporary="true" nameIsGenerated="true">
       <option name="CUCUMBER_CORE_VERSION" value="5" />
-      <option name="FILE_PATH" value="$PROJECT_DIR$/src/main/resources/features/1.Register.feature" />
+      <option name="FILE_PATH" value="$PROJECT_DIR$/src/main/resources/features/3.AddItemsToSaved.feature" />
       <option name="GLUE" value="org.example.stepDefs" />
       <option name="MAIN_CLASS_NAME" value="io.cucumber.core.cli.Main" />
       <module name="JumiaAutomationTask" />
-      <option name="NAME_FILTER" value="^User can\'t make a successfull registration when entering mismatched passwords$" />
-      <option name="PROGRAM_PARAMETERS" value=" --plugin org.jetbrains.plugins.cucumber.java.run.CucumberJvm5SMFormatter --name &quot;^User can\'t make a successfull registration when entering mismatched passwords$&quot;" />
-      <option name="SUGGESTED_NAME" value="Scenario: User can't make a successfull registration when entering mismatched passwords" />
+      <option name="NAME_FILTER" value="^User can add items to his saved items in order to be able to purchase it later$" />
+      <option name="PROGRAM_PARAMETERS" value=" --plugin org.jetbrains.plugins.cucumber.java.run.CucumberJvm5SMFormatter --name &quot;^User can add items to his saved items in order to be able to purchase it later$&quot;" />
+      <option name="SUGGESTED_NAME" value="Scenario: User can add items to his saved items in order to be able to purchase it later" />
       <option name="WORKING_DIRECTORY" value="$MODULE_WORKING_DIR$" />
       <extension name="coverage">
         <pattern>
@@ -180,11 +191,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Cucumber Java.Scenario: User can't make a registration with already registered e-mail address" />
-        <item itemvalue="Cucumber Java.Scenario: User can't make a successfull registration when entering mismatched passwords" />
+        <item itemvalue="Cucumber Java.Scenario: User can add items to his saved items in order to be able to purchase it later" />
         <item itemvalue="Cucumber Java.Scenario: [UAT] User can make a registration on Jumia using valid data" />
         <item itemvalue="Cucumber Java.Feature: 1.Register" />
-        <item itemvalue="Cucumber Java.Feature: 2.AddToCart" />
+        <item itemvalue="Cucumber Java.Feature: 3.AddItemsToSaved" />
+        <item itemvalue="Cucumber Java.Feature: AddItemsToSaved" />
       </list>
     </recent_temporary>
   </component>
@@ -245,16 +256,5 @@
     <MESSAGE value="Code enhancement 03" />
     <MESSAGE value="Code enhancement 04" />
     <option name="LAST_COMMIT_MESSAGE" value="Code enhancement 04" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/test/java/org/example/stepDefs/D01_registerStepDef.java</url>
-          <line>171</line>
-          <option name="timeStamp" value="2" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>
