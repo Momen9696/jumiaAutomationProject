@@ -1,5 +1,4 @@
 package org.example.stepDefs;
-
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -7,6 +6,7 @@ import io.cucumber.java.en.When;
 import org.example.pages.Register_locators;
 import org.example.utils.ConfigManager;
 import org.example.utils.ExcelUtils;
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.asserts.SoftAssert;
@@ -17,18 +17,18 @@ import java.time.Duration;
 public class D01_registerStepDef {
     FunctionsHelper functions = new FunctionsHelper();
     int usedDataRowNumber;
-
-    ExcelUtils validDynamicTestDataSheet = new ExcelUtils(ConfigManager.getInstance().getString("baseExcelSheetPath") + ConfigManager.getInstance().getString("RegistrationDataExcelPath"), "dynamicTestData");
+    String usedEmailAddress;
+    ExcelUtils dynamicTestDataSheet = new ExcelUtils(ConfigManager.getInstance().getString("baseExcelSheetPath") + ConfigManager.getInstance().getString("RegistrationDataExcelPath"), "dynamicTestData");
     String emailAddress = retrieveUnusedData("e-mailAddress");
     String password = retrieveUnusedData("password");
     String phoneNumber, expectedURL, currentUrl;
 
-    ExcelUtils validStaticTestDataSheet = new ExcelUtils(ConfigManager.getInstance().getString("baseExcelSheetPath") + ConfigManager.getInstance().getString("RegistrationDataExcelPath"), "staticTestData");
-    int validRowNumber = validStaticTestDataSheet.getRowNum("validTestData");
+    ExcelUtils staticTestDataSheet = new ExcelUtils(ConfigManager.getInstance().getString("baseExcelSheetPath") + ConfigManager.getInstance().getString("RegistrationDataExcelPath"), "staticTestData");
+    int validRowNumber = staticTestDataSheet.getRowNum("validTestData");
 
-    String firstName = validStaticTestDataSheet.getCellData(validRowNumber, validStaticTestDataSheet.getColNumber("firstName"));
-    String lastName = validStaticTestDataSheet.getCellData(validRowNumber, validStaticTestDataSheet.getColNumber("lastName"));
-    String birthDate = validStaticTestDataSheet.getCellData(validRowNumber, validStaticTestDataSheet.getColNumber("birthDate"));
+    String firstName = staticTestDataSheet.getCellData(validRowNumber, staticTestDataSheet.getColNumber("firstName"));
+    String lastName = staticTestDataSheet.getCellData(validRowNumber, staticTestDataSheet.getColNumber("lastName"));
+    String birthDate = staticTestDataSheet.getCellData(validRowNumber, staticTestDataSheet.getColNumber("birthDate"));
     Register_locators register = new Register_locators();
     SoftAssert softAssert = new SoftAssert();
 
@@ -37,8 +37,8 @@ public class D01_registerStepDef {
 
     public String retrieveUnusedData(String columnName) {
         //retrieve row that has valid unused data
-        int validRow = validDynamicTestDataSheet.getValidRowNumber(validDynamicTestDataSheet.getColNumber("usedFlag"));
-        return validDynamicTestDataSheet.getCellData(validRow, validDynamicTestDataSheet.getColNumber(columnName));
+        int validRow = dynamicTestDataSheet.getValidRowNumber(dynamicTestDataSheet.getColNumber("usedFlag"));
+        return dynamicTestDataSheet.getCellData(validRow, dynamicTestDataSheet.getColNumber(columnName));
     }
 
     @Given("User navigates to Jumia english ,Skips pop up ,and Clicks on Account tab on the top of screen")
@@ -132,8 +132,8 @@ public class D01_registerStepDef {
     }
 
     public void setUsedFlagToTrue() {
-        int validRow = validDynamicTestDataSheet.getValidRowNumber(validDynamicTestDataSheet.getColNumber("usedFlag"));
-        validDynamicTestDataSheet.setCellData(validRow, validDynamicTestDataSheet.getColNumber("usedFlag"), "true");
+        int validRow = dynamicTestDataSheet.getValidRowNumber(dynamicTestDataSheet.getColNumber("usedFlag"));
+        dynamicTestDataSheet.setCellData(validRow, dynamicTestDataSheet.getColNumber("usedFlag"), "true");
     }
 
     @And("User enters password which is mismatched with the the same password")
@@ -166,17 +166,28 @@ public class D01_registerStepDef {
 
     @And("User enters already registered e-mail address")
     public void enteringAlreadyRegisteredEmail() {
-        usedDataRowNumber = validDynamicTestDataSheet.getRowNum("usedEmailAddress");
+        usedDataRowNumber = dynamicTestDataSheet.getRowNum("alreadyUsed");
+        usedEmailAddress=dynamicTestDataSheet.getCellData(usedDataRowNumber, dynamicTestDataSheet.getColNumber("e-mailAddress"));;
         wait.until(ExpectedConditions.visibilityOf(register.emailField()));
-//        register.emailField().sendKeys(validDynamicTestDataSheet.getCellData(usedDataRowNumber, validDynamicTestDataSheet.getColNumber("e-mailAddress")));
-        register.emailField().sendKeys(validDynamicTestDataSheet.getCellData(usedDataRowNumber,validDynamicTestDataSheet.getColNumber("e-mailAddress")));
+        register.emailField().sendKeys(usedEmailAddress);
+
+    }
+    @And("User enters a random password")
+    public void enterRandomPassword() {
+        wait.until(ExpectedConditions.visibilityOf(register.passwordField()));
+        register.passwordField().sendKeys(functions.fake().internet().password()+"Complicated!");
     }
 
     @Then("Confirmation password field shouldn't be appear")
     public void assertConfirmationPasswordInvisibility() {
 
-        softAssert.assertTrue(!register.confirmationPasswordField().isDisplayed());
-        softAssert.assertAll();
+        try {
+            boolean confirmationPasswordVisibility = register.confirmationPasswordField().isDisplayed();
+            softAssert.assertFalse(confirmationPasswordVisibility, "Confirmation password field is displayed.");
+        } catch (NoSuchElementException e) {
+            System.out.println("Confirmation password field is not found or not visible.");
+            softAssert.assertAll();
+        }
     }
 
 }

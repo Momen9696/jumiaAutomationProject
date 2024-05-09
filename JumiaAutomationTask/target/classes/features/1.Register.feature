@@ -39,6 +39,6 @@ Feature: Make A New Registration (Sign Up) on Jumia website
     When    User clicks on sign in button
     And     User enters already registered e-mail address
     And     User clicks on continue button in orange color
-    And     User skips the security pop-up
-    And     User enters his password which should be with good or strong level of strength in password field
+    And     User enters a random password
     Then    Confirmation password field shouldn't be appear
+

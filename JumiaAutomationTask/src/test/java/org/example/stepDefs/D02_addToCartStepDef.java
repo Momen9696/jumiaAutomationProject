@@ -6,11 +6,6 @@ package org.example.stepDefs;
         import io.cucumber.java.en.When;
         import org.example.pages.AddToCart_locators;
         import org.openqa.selenium.support.ui.ExpectedConditions;
-        import org.openqa.selenium.support.ui.WebDriverWait;
-        import org.testng.asserts.SoftAssert;
-
-        import java.time.Duration;
-
 public class D02_addToCartStepDef {
     AddToCart_locators addToCart = new AddToCart_locators();
     FunctionsHelper functions = new FunctionsHelper();
